@@ -4,7 +4,6 @@
 package hello.utilisateurs;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 
 import hello.livre.Livre;
 /**
@@ -27,7 +26,15 @@ public class Loueur extends Utilisateur implements LoueurInterface {
 		return message;
 	}
 	
-	
+	public String listBooks() {
+		String message = "Livres de la collection de " + this.nom + "\n";
+		
+		// Boucle sur la collection des livres
+		for (Livre livre : this.books) {
+			message += livre.titre() + "\n";
+		}
+		return message;
+	}
 	@Override
 	public Utilisateur addBook(Livre livre) {
 		// TODO Auto-generated method stub

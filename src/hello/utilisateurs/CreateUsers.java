@@ -43,7 +43,7 @@ public class CreateUsers {
 			.addBook(livre);
 		((Loueur) loueur)
 			.addBook(livre);
-		System.out.println(((Loueur) loueur).booksNumber());
+		System.out.println(((Loueur) loueur).listBooks());
 			
 	}
 	
