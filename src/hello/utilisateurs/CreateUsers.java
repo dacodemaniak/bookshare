@@ -3,6 +3,8 @@
  */
 package hello.utilisateurs;
 
+import hello.livre.Livre;
+
 /**
  * @author jean-
  *
@@ -14,7 +16,7 @@ public class CreateUsers {
 	 */
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		Utilisateur loueur = CreateUsers.createLoueur();
+		Utilisateur loueur = createLoueur();
 		Utilisateur emprunteur = CreateUsers.createEmprunteur();
 		Utilisateur emprunteurLoueur = createEmprunteurLoueur();
 		
@@ -32,6 +34,17 @@ public class CreateUsers {
 			System.out.println(emprunteurLoueur.nom() + " est un loueur et un emprunteur");
 		}
 		
+		// Créer un Livre
+		Livre livre = new Livre();
+		livre.titre("Les Misérables")
+			.resume("Blah blah blah")
+			.nbPages(520);
+		((Loueur) loueur)
+			.addBook(livre);
+		((Loueur) loueur)
+			.addBook(livre);
+		System.out.println(((Loueur) loueur).booksNumber());
+			
 	}
 	
 	private static Utilisateur createLoueur() {

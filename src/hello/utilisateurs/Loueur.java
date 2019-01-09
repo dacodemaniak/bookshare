@@ -3,6 +3,9 @@
  */
 package hello.utilisateurs;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+
 import hello.livre.Livre;
 /**
  * @author jean-
@@ -11,11 +14,28 @@ import hello.livre.Livre;
 import hello.utilisateurs.interfaces.LoueurInterface;
 
 public class Loueur extends Utilisateur implements LoueurInterface {
-
+	private ArrayList<Livre> books;
+	
+	public Loueur() {
+		this.books = new ArrayList<Livre>();
+	}
+	
+	public String booksNumber() {
+		String message = "Nombre de livres : ";
+		message += this.books.size();
+		
+		return message;
+	}
+	
+	
 	@Override
 	public Utilisateur addBook(Livre livre) {
 		// TODO Auto-generated method stub
-		return null;
+		if (!this.books.contains(livre)) {
+			this.books.add(livre);
+		}
+		
+		return this;
 	}
 
 	@Override
